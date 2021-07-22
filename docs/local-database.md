@@ -25,9 +25,9 @@ This is a _summary_ of the instructions. See other sections below for more detai
 
 - [Connect to the local database](#connecting-to-the-local-database)
 
-  - Edit the `.env` file with your local database connection string information.
+  - Edit the `.env` file with your local database connection string information and source it.
 
-- [Run the database migrations](#running-database-migrations-and-the-app) to create the database schema and populate it with seed data by opening a terminal in the root directory of the repo and running:
+- [Run the database migrations](#running-database-migrations-and-the-app) to create the database schema and populate it with seed data by opening a terminal in the server directory of the repo and running:
 
   ```bash
   npm run flyway:migrate
@@ -257,7 +257,7 @@ To connect with DBeaver:
 
 ## Running Database Migrations and the App
 
-1. Install all the npm packages if you haven't done so already by running `npm install` in the root directory
+1. Install all the npm packages if you haven't done so already by running `npm install` in the server directory
 
 1. Create the database schema and populate it with seed data by running the following command from the server directory:
 
@@ -272,6 +272,12 @@ To connect with DBeaver:
    `Successfully applied X migrations for schema [dbo]...`
 
 1. If you receive an error that says `ERROR: Validate failed: Migration checksum mismatch for migration version XXXX`, then you may want to run flyway's `repair` or `clean` command [described below](#testing-migration-files-and-running-flyway-commands).
+
+1. If you receive an error that says `ERROR: Unable to obtain connection from database (jdbc:sqlserver://undefined; databaseName=undefined) for user 'undefined'`, then you need to source the .env file.
+
+  ```bash
+  source .env
+  ```
 
 1. At this point, you should be able to start the application as usual, by running `npm start`, and it will be using the local database. HOORAY!
 
@@ -291,7 +297,7 @@ When you are confident in your SQL or TRANSACT-SQL script, you will need to crea
 
 ![Image of Flyway Naming Convention](https://i.stack.imgur.com/sTJeU.png)
 
-To create a new migration file, run the following from your root directory:
+To create a new migration file, run the following from your server directory:
 
 ```bash
 ./db/create-migration
