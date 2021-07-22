@@ -77,3 +77,6 @@ SET calculationId=1, code=N'UNITS_HABIT_GT3', name=N'Number of Habitable Rooms >
 	<p>Therefore, a living room, dining room, and kitchen, all completely separated from each 
 	other with walls, will count as three habitable rooms for parking calculation purposes.</p></div>', mask=NULL, link=NULL, validationFunctionBody=NULL
 WHERE id=22;
+UPDATE CalculationRule
+SET calculationId=1, code=N'UNITS_GUEST', name=N'Number of Guest Rooms', category=N'input', dataType=N'number', units=N'rooms', value=NULL, functionBody=NULL, displayOrder=2500, inactive=0, calculationPanelId=30, used=0, displayFunctionBody=N'return true;', [minValue]=0.00, [maxValue]=NULL, choices=NULL, calcCode=NULL, required=0, minStringLength=NULL, maxStringLength=NULL, displayComment=0, description=N'', mask=NULL, link=NULL, validationFunctionBody=NULL
+WHERE id=218;
