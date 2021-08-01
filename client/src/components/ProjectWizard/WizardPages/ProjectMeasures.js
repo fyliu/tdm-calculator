@@ -141,13 +141,11 @@ function ProjectMeasure(props) {
           ) : null}
         </div>
 
-        <div className={classes.resetFlexContainer}>
-          <ResetButtons
-            className={classes.alignRight}
-            uncheckAll={uncheckAll}
-            resetProject={resetProject}
-          />
-        </div>
+        <ResetButtons
+          className={classes.alignRight}
+          uncheckAll={uncheckAll}
+          resetProject={resetProject}
+        />
       </div>
       <RuleStrategyPanels
         projectLevel={projectLevel}
